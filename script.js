@@ -1,10 +1,55 @@
 let equation = "";
 
+const themes = ["Body", "Heading", "Main", "Inputs", "CalcButton", "CalcButton:active",
+                    "EqualButton", "delContainer", "RemoveButton", "RemoveButton:active",
+                    ]
+
 function displayEquation() {
 
     const output = document.getElementById("output");
 
+
     output.innerHTML = equation;
+
+    if (equation.length == 0) {
+        output.innerHTML = "0";
+    }
+
+}
+
+function removeError() {
+
+    if (equation.startsWith("undefined")) {
+        equation = equation.slice("undefined".length, 0);
+    }
+
+    if (equation.startsWith("NaN")) {
+        equation = equation.slice("NaN".length, 0);
+    }
+}
+
+function changeTheme() {
+
+    const options = document.getElementsByClassName("options");
+    const themeSelected = document.getElementById("themeSelected");
+
+    for (let i = 0; i < options.length; i++) {
+
+        if (options[i].contains(themeSelected)) {
+
+            const nextOption = (i + 1) % 3;
+            
+            options[nextOption].appendChild(themeSelected.cloneNode(true));
+
+            options[i].removeChild(themeSelected);
+            return;
+        }
+    }
+}
+
+function switchTheme(current, next) {
+
+
 }
 
 function calculate() {
@@ -12,34 +57,40 @@ function calculate() {
     let nums = [];
     let operators = [];
 
+
     let num = "";
     for (let i = 0; i < equation.length; i++) {
 
-        if (!isNaN(equation[i])) {
+        if (!isNaN(equation[i]) || equation[i] == ".") {
             num += equation[i];
 
         } else {
-            console.log(num);
             operators.push(equation[i]);
             nums.push(num);
             num = "";
         }
     }
 
+    if (operators.length != nums.length + 1) {
+        equation = "undefined"
+        return;
+    }
+
     if (num.length != 0) {
         nums.push(num);
     }
 
-    console.log(nums);
-    console.log(operators);
-
     for (let i = 0; i < equation.length; i++) {
 
-        if (operators[i] == "*") {
+        if (operators[i] == "x") {
             const num1 = Number(nums[i]);
             const num2 = Number(nums[i + 1]);
         
             const result = num1 * num2; 
+            nums[i] = result; 
+ 
+            nums.splice(i + 1, 1);
+            operators.splice(i, 1); 
         }
 
         if (operators[i] == "/") {
@@ -47,8 +98,40 @@ function calculate() {
             const num2 = Number(nums[i + 1]);
 
             const result = num1 / num2; 
+            nums[i] = result;
+
+            nums.splice(i + 1, 1);
+            operators.splice(i, 1);
         }
     }
+
+    for (let i = 0; i < equation.length; i++) {
+
+        if (operators[i] == "+") {
+            const num1 = Number(nums[i]);
+            const num2 = Number(nums[i + 1]);
+
+            const result = num1 + num2; 
+            nums[i] = result;
+
+            nums.splice(i + 1, 1);
+            operators.splice(i, 1);
+        }
+
+        if (operators[i] == "-") {
+            const num1 = Number(nums[i]);
+            const num2 = Number(nums[i + 1]);
+
+            const result = num1 - num2; 
+            nums[i] = result;
+
+            nums.splice(i + 1, 1);
+            operators.splice(i, 1);
+        }
+    }
+
+    equation = "" + nums[0];
+
 }
 
 const numericButtons = document.getElementsByClassName("numeric");
@@ -56,6 +139,7 @@ const numericButtons = document.getElementsByClassName("numeric");
 for (let i = 0; i < numericButtons.length; i++) {
 
     numericButtons[i].addEventListener("click", () => {
+        removeError();
         equation += numericButtons[i].value
         displayEquation(); 
     });
@@ -65,6 +149,7 @@ const operatorButtons = document.getElementsByClassName("operator");
 
 for (let i = 0; i < operatorButtons.length; i++) {
     operatorButtons[i].addEventListener("click", () => {
+        removeError();
         equation += operatorButtons[i].value
         displayEquation(); 
     });
@@ -73,6 +158,8 @@ for (let i = 0; i < operatorButtons.length; i++) {
 const delButton = document.getElementById("delButton");
 
 delButton.addEventListener("click", () => {
+
+    removeError();
     equation = equation.slice(0, -1);
 
     displayEquation();
@@ -83,6 +170,17 @@ equalButton.addEventListener("click", () => {
     calculate(); 
 
     displayEquation();
-})
+});
 
-console.log('hi');
+const resetButton = document.getElementById("resetButton");
+resetButton.addEventListener("click", () => {
+    equation = ""; 
+
+    displayEquation();
+});
+
+const themeButton = document.getElementById("themeButton");
+
+themeButton.addEventListener("click", () => {
+    changeTheme();
+}); 

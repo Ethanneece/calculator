@@ -10,7 +10,7 @@
   <title>Frontend Mentor | Calculator app</title>
 
 </head>
-<body>
+<body class="t1Body">
 
   <main class="t1Main">
     <div class="heading t1Heading">
@@ -22,22 +22,27 @@
           Theme
         </h1>
         <div>
-          <button class="t1ThemeClicker">
+          <button id="themeButton" class="t1ThemeClicker">
             <div class="column">
               <div class="row themeOptionsContainer">
-                <option class="t1ThemeOptions">
-                  1
-                </option>
-                <option class="t1ThemeOptions">
-                  2
-                </option>
-                <option class="t1ThemeOptions">
-                  3
-                </option>
+                <div class="column options">
+                  <option id="option1" class="t1ThemeOptions">
+                    1
+                  </option>
+                  <div id="themeSelected" class="selectedTheme"></div>
+                </div>
+                <div id="option2" class="column options">
+                  <option class="t1ThemeOptions">
+                    2
+                  </option>
+                </div>
+                <div id="option3" class="column options">
+                  <option class="t1ThemeOptions">
+                    3
+                  </option>
+                </div>
               </div>
-              <div class="t1ThemeSelection">
-                <div></div>
-              </div>
+              <div class="t1ThemeSelection"></div>
             </div>
           </button>
         </div>
@@ -51,104 +56,87 @@
   </div>
   <section class="inputs t1Inputs">
     <div class="row">
-      <div class="buttonContainer">
-        <button value=7 class="numeric calcButton t1CalcButton">
+      <button value=7 class="numeric calcButton t1CalcButton">
           7
-        </button>
-      </div>
-      <div class="buttonContainer">
-        <button value=8 class="numeric calcButton t1CalcButton">
-          8
-        </button>
-      </div>
-      <div class="buttonContainer">
-        <button value=9 class="numeric calcButton t1CalcButton">
-          9
-        </button>
-      </div>
-      <div class="t1DeleteContainer">
-        <button id="delButton" value="del" class="delKey calcButton t1RemoveButton ">
-          del
-        </button>
-      </div>      
+      </button>
+      
+      <button value=8 class="numeric calcButton t1CalcButton">
+        8
+      </button>
+      
+      <button value=9 class="numeric calcButton t1CalcButton">
+        9
+      </button>
+      
+      <button id="delButton" value="del" class="delKey calcButton t1RemoveButton ">
+        del
+      </button>     
     </div>
     <div class="row">
-      <div class="buttonContainer">
-        <button value="4" class="numeric calcButton t1CalcButton">
-          4
-        </button>
-      </div>
-      <div class="buttonContainer">
-        <button value="5" class="numeric calcButton t1CalcButton">
-          5
-        </button>
-      </div>
-      <div class="buttonContainer">
-        <button value="6" class="numeric calcButton t1CalcButton">
-          6
-        </button>
-      </div>
-      <div class="buttonContainer">
-        <button value="+" class="operator calcButton t1CalcButton">
-          +
-        </button>
-      </div>
+
+      <button value="4" class="numeric calcButton t1CalcButton">
+        4
+      </button>
+
+      <button value="5" class="numeric calcButton t1CalcButton">
+        5
+      </button>
+
+      <button value="6" class="numeric calcButton t1CalcButton">
+        6
+      </button>
+
+      <button value="+" class="operator calcButton t1CalcButton">
+        +
+      </button>
+
     </div>
     <div class="row">
-      <div class="buttonContainer">
-        <button value=1 class="numeric calcButton t1CalcButton">
-          1
-        </button>
-      </div>
-      <div class="buttonContainer">
-        <button value=2 class="numeric calcButton t1CalcButton">
-          2
-        </button>
-      </div>
-      <div class="buttonContainer">
-        <button value=3 class="operator numeric calcButton t1CalcButton">
-          3
-        </button>
-      </div>
-      <div class="buttonContainer">
-        <button value="-" class="operator calcButton t1CalcButton">
-          -
-        </button>
-      </div>
+
+      <button value=1 class="numeric calcButton t1CalcButton">
+        1
+      </button>
+
+      <button value=2 class="numeric calcButton t1CalcButton">
+        2
+      </button>
+
+      <button value=3 class="numeric calcButton t1CalcButton">
+        3
+      </button>
+
+      <button value="-" class="operator calcButton t1CalcButton">
+        -
+      </button>
+
     </div>
     <div class="row">
-      <div class="buttonContainer">
-        <button value="." class="numeric calcButton t1CalcButton">
-          .
-        </button>
-      </div>
-      <div class="buttonContainer">
-        <button value="0" class="numeric calcButton t1CalcButton">
-          0
-        </button>
-      </div>
-      <div class="buttonContainer">
-        <button value="/" class="operator calcButton t1CalcButton">
-          /
-        </button>
-      </div>
-      <div class="buttonContainer">
-        <button value="x" class="operator calcButton t1CalcButton">
-          x
-        </button>
-      </div>
+
+      <button value="." class="numeric calcButton t1CalcButton">
+        .
+      </button>
+ 
+      <button value="0" class="numeric calcButton t1CalcButton">
+        0
+      </button>
+
+      <button value="/" class="operator calcButton t1CalcButton">
+        /
+      </button>
+
+      <button value="x" class="operator calcButton t1CalcButton">
+        x
+      </button>
+
     </div>
     <div class="row">
-      <div class="t1RemoveContainer">
-        <button value="reset" class="bottomButton t1RemoveButton">
-          reset
-        </button>
-      </div>
-      <div class="t1EqualContainer">
-        <button id="equalButton" value="=" class="bottomButton t1EqualButton">
-          =
-        </button>
-      </div>
+      <button id="resetButton" value="reset" class="bottomButton t1RemoveButton">
+        reset
+      </button>
+
+      <button id="equalButton" value="=" class="bottomButton t1EqualButton">
+        =
+      </button>
     </div>
   </section>
   </main>

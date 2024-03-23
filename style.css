@@ -2,29 +2,46 @@
 
 :root {
 
-    --t1-key-background: hsl(30, 25%, 89%);
-    --t1-key-shadow: hsl(28, 16%, 65%);
-    
-    --t1-equal-background: hsl(6, 63%, 50%);
-    --t1-equal-shadow: hsl(6, 70%, 34%);
+    --t1-calc-background: hsl(222, 26%, 31%);
+    --t1-keypad-background: hsl(223, 31%, 20%);
+    --t1-output-background: hsl(224, 36%, 15%);
 
     --t1-remove-background: hsl(225, 21%, 49%);
     --t1-remove-shadow: hsl(224, 28%, 35%);
 
+    --t1-equal-background: hsl(6, 63%, 50%);
+    --t1-equal-shadow: hsl(6, 70%, 34%);
+
+    --t1-key-background: hsl(30, 25%, 89%);
+    --t1-key-shadow: hsl(28, 16%, 65%);
+    
     --t1-key-color: hsl(221, 14%, 31%);
-
-
     --t1-output-color: hsl(0, 0%, 100%);
-    --t1-output-background: hsl(224, 36%, 15%);
 
-    --t1-keypad-background: hsl(223, 31%, 20%);
+    --t2-calc-background: hsl(0, 0%, 90%);
+    --t2-keypad-background: hsl(0, 5%, 81%);
+    --t2-output-background: hsl(0, 0%, 93%);
 
-    --t1-calc-background: hsl(222, 26%, 31%);
+    --t2-remove-background: hsl(185, 42%, 37%);
+    --t2-remove-shadow: hsl(185, 58%, 25%);
+
+    --t2-equal-background: hsl(25, 98%, 40%);
+    --t2-equal-shadow: hsl(25, 99%, 27%);
+
+    --t2-key-background: hsl(45, 7%, 89%);
+    --t2-key-shadow: hsl(35, 11%, 61%);
+
+    --t2-key-color: hsl(60, 10%, 19%);
+    --t2-output-color: hsl(0, 0%, 100%);
 }
 
 body {
     min-width: 100%; 
     min-height: 100vh;
+}
+
+.t1Body {
+    background-color: var(--t1-calc-background);
 }
 
 * {
@@ -41,13 +58,24 @@ main {
     align-items: center;
 
     gap: 20px;
+    justify-content: space-between;
 
-    height: 100%;
+}
+
+@media screen and (max-width: 700px) {
+
+    main {
+        min-height: 100vh;
+    }
 }
 
 .heading {
     display: flex; 
     justify-content: space-around;
+
+    align-items: center;
+
+    padding: 20px;
 
     width: 90%;
 }
@@ -105,13 +133,13 @@ main {
     outline: none;
     border: none;
     margin-bottom: 10px;
-
 }
 
 .calcButton:active {
-    
+
     transform: translateY(4px);
 }
+
 
 .buttonContainer {
 
@@ -123,6 +151,26 @@ main {
 
     background-color: var(--t1-key-background);
     color: var(--t1-key-color);
+    box-shadow: 0 10px var(--t1-key-shadow);
+}
+
+.t1CalcButton:active {
+
+    transform: translateY(4px);
+    box-shadow: 0px 6px  var(--t1-key-shadow);
+}
+
+.selectedTheme {
+
+    width: 10px; 
+    height: 10px; 
+
+    background-color: red;
+    border-radius: 50%;
+
+    position: absolute;
+
+    transform: translateY(30px);
 }
 
 .bottomButton {
@@ -130,19 +178,24 @@ main {
     outline: none;
     border: none;
 
-    width: 100%;
+    width: 47%;
     padding: 20px;
 
     margin-bottom: 10px;
-
-
     border-radius: 10px;
 }
-
 .t1EqualButton {
 
     background-color: var(--t1-equal-background);
     color: var(--t1-output-color);
+
+    box-shadow: 0px 10px var(--t1-equal-shadow);
+}
+
+.t1EqualButton:active {
+
+    transform: translateY(4px);
+    box-shadow: 0px 6px var(--t1-equal-shadow);
 }
 
 .t1DeleteContainer .delKey {
@@ -157,36 +210,27 @@ main {
     color: var(--t1-output-color);
 
     text-transform: uppercase;
+
+    box-shadow: 0px 10px var(--t1-remove-shadow);
 }
 
-.t1RemoveContainer {
+.t1RemoveButton:active {
 
-    border-radius: 10px;
-    background-color: var(--t1-remove-shadow);
-    width: 45%;
+    transform: translateY(4px);
+    box-shadow: 0px 6px var(--t1-remove-shadow);
 }
 
-.t1EqualContainer {
-
-    border-radius: 10px;
-    background-color: var(--t1-equal-shadow);
-    width: 45%;
-}
-
-.t1DeleteContainer {
-
-    border-radius: 10px;
-    background-color: var(--t1-remove-shadow);
-}
 
 .themeSwitcher {
     display: flex;
     gap: 10px;
+
+    align-items: center;
 }
 
 .t1ThemeSelection {
 
-    width: 100%; 
+    width: 90px; 
     height: 30px;
     border-radius: 20px;
     background-color: var(--t1-keypad-background);
