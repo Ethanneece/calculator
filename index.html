@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css"> 
+  
+  <title>Frontend Mentor | Calculator app</title>
+
+</head>
+<body>
+
+  <main class="t1Main">
+    <div class="heading t1Heading">
+      <h1>
+        calc
+      </h1>
+      <div class="themeSwitcher">
+        <h1>
+          Theme
+        </h1>
+        <div>
+          <button class="t1ThemeClicker">
+            <div class="column">
+              <div class="row themeOptionsContainer">
+                <option class="t1ThemeOptions">
+                  1
+                </option>
+                <option class="t1ThemeOptions">
+                  2
+                </option>
+                <option class="t1ThemeOptions">
+                  3
+                </option>
+              </div>
+              <div class="t1ThemeSelection">
+                <div></div>
+              </div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  <div class="outputContainer">
+    <h2 id="output" class="output">
+      0
+    </h2>
+  </div>
+  <section class="inputs t1Inputs">
+    <div class="row">
+      <div class="buttonContainer">
+        <button value=7 class="numeric calcButton t1CalcButton">
+          7
+        </button>
+      </div>
+      <div class="buttonContainer">
+        <button value=8 class="numeric calcButton t1CalcButton">
+          8
+        </button>
+      </div>
+      <div class="buttonContainer">
+        <button value=9 class="numeric calcButton t1CalcButton">
+          9
+        </button>
+      </div>
+      <div class="t1DeleteContainer">
+        <button id="delButton" value="del" class="delKey calcButton t1RemoveButton ">
+          del
+        </button>
+      </div>      
+    </div>
+    <div class="row">
+      <div class="buttonContainer">
+        <button value="4" class="numeric calcButton t1CalcButton">
+          4
+        </button>
+      </div>
+      <div class="buttonContainer">
+        <button value="5" class="numeric calcButton t1CalcButton">
+          5
+        </button>
+      </div>
+      <div class="buttonContainer">
+        <button value="6" class="numeric calcButton t1CalcButton">
+          6
+        </button>
+      </div>
+      <div class="buttonContainer">
+        <button value="+" class="operator calcButton t1CalcButton">
+          +
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="buttonContainer">
+        <button value=1 class="numeric calcButton t1CalcButton">
+          1
+        </button>
+      </div>
+      <div class="buttonContainer">
+        <button value=2 class="numeric calcButton t1CalcButton">
+          2
+        </button>
+      </div>
+      <div class="buttonContainer">
+        <button value=3 class="operator numeric calcButton t1CalcButton">
+          3
+        </button>
+      </div>
+      <div class="buttonContainer">
+        <button value="-" class="operator calcButton t1CalcButton">
+          -
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="buttonContainer">
+        <button value="." class="numeric calcButton t1CalcButton">
+          .
+        </button>
+      </div>
+      <div class="buttonContainer">
+        <button value="0" class="numeric calcButton t1CalcButton">
+          0
+        </button>
+      </div>
+      <div class="buttonContainer">
+        <button value="/" class="operator calcButton t1CalcButton">
+          /
+        </button>
+      </div>
+      <div class="buttonContainer">
+        <button value="x" class="operator calcButton t1CalcButton">
+          x
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="t1RemoveContainer">
+        <button value="reset" class="bottomButton t1RemoveButton">
+          reset
+        </button>
+      </div>
+      <div class="t1EqualContainer">
+        <button id="equalButton" value="=" class="bottomButton t1EqualButton">
+          =
+        </button>
+      </div>
+    </div>
+  </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

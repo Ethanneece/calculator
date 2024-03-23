@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=League+Spartan:wght@100..900&family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Rubik:ital,wght@0,300..900;1,300..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+
+    --t1-key-background: hsl(30, 25%, 89%);
+    --t1-key-shadow: hsl(28, 16%, 65%);
+    
+    --t1-equal-background: hsl(6, 63%, 50%);
+    --t1-equal-shadow: hsl(6, 70%, 34%);
+
+    --t1-remove-background: hsl(225, 21%, 49%);
+    --t1-remove-shadow: hsl(224, 28%, 35%);
+
+    --t1-key-color: hsl(221, 14%, 31%);
+
+
+    --t1-output-color: hsl(0, 0%, 100%);
+    --t1-output-background: hsl(224, 36%, 15%);
+
+    --t1-keypad-background: hsl(223, 31%, 20%);
+
+    --t1-calc-background: hsl(222, 26%, 31%);
+}
+
+body {
+    min-width: 100%; 
+    min-height: 100vh;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+}
+
+main {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+
+    gap: 20px;
+
+    height: 100%;
+}
+
+.heading {
+    display: flex; 
+    justify-content: space-around;
+
+    width: 90%;
+}
+
+.t1Heading {
+
+    color: var(--t1-output-color);
+}
+
+.t1Main {
+
+    background-color: var(--t1-calc-background);
+}
+
+.inputs {
+    width: 90%;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.t1Inputs {
+    background-color: var(--t1-keypad-background);
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    width: 100%;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.column {
+    display: flex; 
+    flex-direction: column;
+}
+
+.calcButton {
+    padding: 20px;
+    border-radius: 10px;
+
+    width: 80px;
+    height: 80px;
+
+    outline: none;
+    border: none;
+    margin-bottom: 10px;
+
+}
+
+.calcButton:active {
+    
+    transform: translateY(4px);
+}
+
+.buttonContainer {
+
+    background-color: var(--t1-key-shadow);
+    border-radius: 10px;
+}
+
+.t1CalcButton {
+
+    background-color: var(--t1-key-background);
+    color: var(--t1-key-color);
+}
+
+.bottomButton {
+
+    outline: none;
+    border: none;
+
+    width: 100%;
+    padding: 20px;
+
+    margin-bottom: 10px;
+
+
+    border-radius: 10px;
+}
+
+.t1EqualButton {
+
+    background-color: var(--t1-equal-background);
+    color: var(--t1-output-color);
+}
+
+.t1DeleteContainer .delKey {
+
+    font-size: 24px;
+}
+
+.t1RemoveButton {
+
+    font-size: 32px;
+    background-color: var(--t1-remove-background);
+    color: var(--t1-output-color);
+
+    text-transform: uppercase;
+}
+
+.t1RemoveContainer {
+
+    border-radius: 10px;
+    background-color: var(--t1-remove-shadow);
+    width: 45%;
+}
+
+.t1EqualContainer {
+
+    border-radius: 10px;
+    background-color: var(--t1-equal-shadow);
+    width: 45%;
+}
+
+.t1DeleteContainer {
+
+    border-radius: 10px;
+    background-color: var(--t1-remove-shadow);
+}
+
+.themeSwitcher {
+    display: flex;
+    gap: 10px;
+}
+
+.t1ThemeSelection {
+
+    width: 100%; 
+    height: 30px;
+    border-radius: 20px;
+    background-color: var(--t1-keypad-background);
+}
+
+.outputContainer {
+
+    display: flex; 
+    align-items: center;
+    justify-content: end;
+    background-color: var(--t1-output-background);
+    height: 60px;
+    width: 80%;
+    padding: 20px;
+
+    border-radius: 15px;
+}
+
+.output {
+    text-align: center;
+    color: var(--t1-output-color);
+    font-size: 48px;
+
+}
+
+.themeOptionsContainer {
+
+    display: flex; 
+    gap: 20px;
+}
+
+.t1ThemeClicker {
+
+    display: flex; 
+    justify-content: space-around;
+
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+
+.t1ThemeOptions {
+
+    font-size: 18px;
+
+    color: var(--t1-output-color);
+}
