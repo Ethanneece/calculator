@@ -14,7 +14,7 @@
 
   <main class="t1Main">
     <div class="heading t1Heading">
-      <h1>
+      <h1 class="t1Header">
         calc
       </h1>
       <div class="themeSwitcher">
@@ -26,31 +26,31 @@
             <div class="column">
               <div class="row themeOptionsContainer">
                 <div class="column options">
-                  <option id="option1" class="t1ThemeOptions">
+                  <option id="option1" class="themeOptions t1ThemeOptions">
                     1
                   </option>
-                  <div id="themeSelected" class="selectedTheme"></div>
+                  <div id="themeSelected" class="selectedTheme t1SelectedTheme"></div>
                 </div>
                 <div id="option2" class="column options">
-                  <option class="t1ThemeOptions">
+                  <option class="themeOptions t1ThemeOptions">
                     2
                   </option>
                 </div>
                 <div id="option3" class="column options">
-                  <option class="t1ThemeOptions">
+                  <option class="themeOptions t1ThemeOptions">
                     3
                   </option>
                 </div>
               </div>
-              <div class="t1ThemeSelection"></div>
+              <div class="themeSelectionBackground t1ThemeSelectionBackground"></div>
             </div>
           </button>
         </div>
       </div>
     </div>
 
-  <div class="outputContainer">
-    <h2 id="output" class="output">
+  <div class="outputContainer t1OutputContainer">
+    <h2 id="output" class="output t1Output">
       0
     </h2>
   </div>
@@ -68,7 +68,7 @@
         9
       </button>
       
-      <button id="delButton" value="del" class="delKey calcButton t1RemoveButton ">
+      <button id="delButton" value="del" class="delKey calcButton removeButton t1RemoveButton ">
         del
       </button>     
     </div>
@@ -130,11 +130,11 @@
 
     </div>
     <div class="row">
-      <button id="resetButton" value="reset" class="bottomButton t1RemoveButton">
+      <button id="resetButton" value="reset" class="bottomButton removeButton t1RemoveButton">
         reset
       </button>
 
-      <button id="equalButton" value="=" class="bottomButton t1EqualButton">
+      <button id="equalButton" value="=" class="bottomButton equalButton t1EqualButton">
         =
       </button>
     </div>

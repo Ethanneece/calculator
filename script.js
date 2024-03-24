@@ -2,7 +2,8 @@ let equation = "";
 
 const themes = ["Body", "Heading", "Main", "Inputs", "CalcButton", "CalcButton:active",
                     "EqualButton", "delContainer", "RemoveButton", "RemoveButton:active",
-                    ]
+                    "OutputContainer", "Output", "ThemeSelectionBackground", "Header",
+                    "Header"]
 
 function displayEquation() {
 
@@ -42,6 +43,7 @@ function changeTheme() {
             options[nextOption].appendChild(themeSelected.cloneNode(true));
 
             options[i].removeChild(themeSelected);
+            switchTheme(i + 1, nextOption + 1);
             return;
         }
     }
@@ -50,9 +52,27 @@ function changeTheme() {
 function switchTheme(current, next) {
 
 
+    for (let i = 0; i < themes.length; i++) {
+        const currentTheme = "t" + current + themes[i];
+        const nextTheme = "t" + next + themes[i];
+        const elements = document.getElementsByClassName(currentTheme);
+        console.log(currentTheme);
+        console.log(elements);
+
+        while (elements.length > 0) {
+            console.log(currentTheme)
+            console.log(elements[0]);
+            elements[0].classList.add(nextTheme);
+            elements[0].classList.remove(currentTheme);
+        }
+    }
 }
 
 function calculate() {
+
+    if (equation.length == 0) {
+        return;
+    }
 
     let nums = [];
     let operators = [];
@@ -71,16 +91,18 @@ function calculate() {
         }
     }
 
-    if (operators.length != nums.length + 1) {
-        equation = "undefined"
-        return;
-    }
-
     if (num.length != 0) {
         nums.push(num);
     }
 
-    for (let i = 0; i < equation.length; i++) {
+    console.log()
+
+    if (operators.length != nums.length - 1) {
+        equation = "undefined"
+        return;
+    }
+
+    for (let i = 0; i < operators.length; i++) {
 
         if (operators[i] == "x") {
             const num1 = Number(nums[i]);
@@ -91,6 +113,7 @@ function calculate() {
  
             nums.splice(i + 1, 1);
             operators.splice(i, 1); 
+            i--;
         }
 
         if (operators[i] == "/") {
@@ -102,10 +125,11 @@ function calculate() {
 
             nums.splice(i + 1, 1);
             operators.splice(i, 1);
+            i--;
         }
     }
 
-    for (let i = 0; i < equation.length; i++) {
+    for (let i = 0; i < operators.length; i++) {
 
         if (operators[i] == "+") {
             const num1 = Number(nums[i]);
@@ -116,6 +140,7 @@ function calculate() {
 
             nums.splice(i + 1, 1);
             operators.splice(i, 1);
+            i--;
         }
 
         if (operators[i] == "-") {
@@ -127,11 +152,11 @@ function calculate() {
 
             nums.splice(i + 1, 1);
             operators.splice(i, 1);
+            i--;
         }
     }
 
     equation = "" + nums[0];
-
 }
 
 const numericButtons = document.getElementsByClassName("numeric");

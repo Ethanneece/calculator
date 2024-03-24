@@ -2,6 +2,8 @@
 
 :root {
 
+
+    /* THEME 1 */
     --t1-calc-background: hsl(222, 26%, 31%);
     --t1-keypad-background: hsl(223, 31%, 20%);
     --t1-output-background: hsl(224, 36%, 15%);
@@ -17,7 +19,10 @@
     
     --t1-key-color: hsl(221, 14%, 31%);
     --t1-output-color: hsl(0, 0%, 100%);
+    --t1-special-key-color: hsl(0, 0%, 100%);
+    --t1-equal-key-color: hsl(0, 0%, 100%);
 
+    /* THEME 2 */
     --t2-calc-background: hsl(0, 0%, 90%);
     --t2-keypad-background: hsl(0, 5%, 81%);
     --t2-output-background: hsl(0, 0%, 93%);
@@ -32,7 +37,28 @@
     --t2-key-shadow: hsl(35, 11%, 61%);
 
     --t2-key-color: hsl(60, 10%, 19%);
-    --t2-output-color: hsl(0, 0%, 100%);
+    --t2-output-color: hsl(60, 10%, 19%);
+    --t2-special-key-color: hsl(0, 0%, 100%);
+    --t2-equal-key-color: hsl(0, 0%, 100%);
+
+    /* THEME 3 */
+    --t3-calc-background: hsl(268, 75%, 9%);
+    --t3-keypad-background: hsl(268, 71%, 12%);
+    --t3-output-background: hsl(269, 74%, 12%);
+
+    --t3-remove-background: hsl(281, 89%, 26%);
+    --t3-remove-shadow: hsl(285, 91%, 52%);
+
+    --t3-equal-background: hsl(176, 100%, 44%);
+    --t3-equal-shadow: hsl(177, 92%, 70%);
+
+    --t3-key-background: hsl(268, 47%, 21%);
+    --t3-key-shadow: hsl(290, 70%, 36%);
+
+    --t3-key-color: hsl(52, 100%, 62%);
+    --t3-output-color: hsl(52, 100%, 62%);
+    --t3-special-color: hsl(0, 0%, 100%);
+    --t3-equal-key-color: hsl(198, 20%, 13%);
 }
 
 body {
@@ -42,6 +68,14 @@ body {
 
 .t1Body {
     background-color: var(--t1-calc-background);
+}
+
+.t2Body {
+    background-color: var(--t2-calc-background);
+}
+
+.t3Body {
+    background-color: var(--t3-calc-background);
 }
 
 * {
@@ -62,16 +96,46 @@ main {
 
 }
 
-@media screen and (max-width: 700px) {
+.t1Main {
+    background-color: var(--t1-calc-background);
+}
+
+.t2Main {
+    background-color: var(--t2-calc-background);
+}
+
+.t3Main {
+    background-color: var(--t3-calc-background);
+}
+
+@media screen and (max-width: 815px) {
 
     main {
+        width: 90%;
         min-height: 100vh;
+        margin: 0 auto;
+    }
+
+    .calcButton {
+        width: 80px;
+    }
+}
+
+@media screen and (min-width: 815px) {
+
+    main {
+        max-width: 60%;
+        margin: 0 auto;
+    }
+
+    .calcButton {
+        width: 110px;
     }
 }
 
 .heading {
     display: flex; 
-    justify-content: space-around;
+    justify-content: space-between;
 
     align-items: center;
 
@@ -85,10 +149,15 @@ main {
     color: var(--t1-output-color);
 }
 
-.t1Main {
-
-    background-color: var(--t1-calc-background);
+.t2Heading {
+    color: var(--t2-output-color);
 }
+
+.t3Heading {
+    color: var(--t3-output-color);
+}
+
+
 
 .inputs {
     width: 90%;
@@ -105,6 +174,26 @@ main {
     background-color: var(--t1-keypad-background);
 }
 
+.t2Inputs {
+    background-color: var(--t2-keypad-background);
+}
+
+.t3Inputs {
+    background-color: var(--t3-keypad-background);
+}
+
+.t1Header {
+    color: var(--t1-output-color);
+}
+
+.t2Header {
+    color: var(--t2-output-color);
+}
+
+.t3Header {
+    color: var(--t3-output-color);
+}
+
 .row {
     display: flex;
     justify-content: space-around;
@@ -118,46 +207,51 @@ main {
     flex-direction: column;
 }
 
-.column {
-    display: flex; 
-    flex-direction: column;
-}
-
 .calcButton {
     padding: 20px;
     border-radius: 10px;
 
-    width: 80px;
     height: 80px;
 
     outline: none;
     border: none;
     margin-bottom: 10px;
-}
-
-.calcButton:active {
-
-    transform: translateY(4px);
-}
-
-
-.buttonContainer {
-
-    background-color: var(--t1-key-shadow);
-    border-radius: 10px;
+    cursor: pointer;
 }
 
 .t1CalcButton {
-
     background-color: var(--t1-key-background);
     color: var(--t1-key-color);
-    box-shadow: 0 10px var(--t1-key-shadow);
+    box-shadow: 0px 10px var(--t1-key-shadow);
+}
+
+.t2CalcButton {
+    background-color: var(--t2-key-background);
+    color: var(--t2-key-color);
+    box-shadow: 0px 10px var(--t2-key-shadow);
+}
+
+.t3CalcButton {
+    background-color: var(--t3-key-background);
+    color: var(--t3-key-color);
+    box-shadow: 0px 10px var(--t3-key-shadow);
+}
+
+.calcButton:active {
+    transform: translateY(4px);
 }
 
 .t1CalcButton:active {
 
-    transform: translateY(4px);
     box-shadow: 0px 6px  var(--t1-key-shadow);
+}
+
+.t2CalcButton:active {
+    box-shadow: 0px 6px var(--t2-key-shadow);
+}
+
+.t3CalcButton:active {
+    box-shadow: 0px 6px var(--t3-key-shadow);
 }
 
 .selectedTheme {
@@ -165,12 +259,23 @@ main {
     width: 10px; 
     height: 10px; 
 
-    background-color: red;
     border-radius: 50%;
 
     position: absolute;
 
     transform: translateY(30px);
+}
+
+.t1SelectedTheme {
+    background-color: var(--t1-equal-background);
+}
+
+.t2SelectedTheme {
+    background-color: var(--t2-equal-background);
+}
+
+.t3SelectedTheme {
+    background-color: var(--t3-equal-background);
 }
 
 .bottomButton {
@@ -183,19 +288,47 @@ main {
 
     margin-bottom: 10px;
     border-radius: 10px;
+    cursor: pointer;
 }
-.t1EqualButton {
 
+.equalButton:active {
+    transform: translateY(4px);
+}
+
+.t1EqualButton {
     background-color: var(--t1-equal-background);
-    color: var(--t1-output-color);
+    color: var(--t1-equal-key-color);
 
     box-shadow: 0px 10px var(--t1-equal-shadow);
 }
 
+.t2EqualButton {
+    background-color: var(--t2-equal-background);
+    color: var(--t2-equal-key-color);
+    box-shadow: 0px 10px var(--t2-equal-shadow);
+}
+
+.t3EqualButton {
+    background-color: var(--t3-equal-background);
+    color: var(--t3-equal-key-color);
+    box-shadow: 0px 10px var(--t3-equal-shadow);
+}
+
+.equalButton:active {
+    transform: translateY(4px);
+}
+
 .t1EqualButton:active {
 
-    transform: translateY(4px);
     box-shadow: 0px 6px var(--t1-equal-shadow);
+}
+
+.t2EqualButton:active {
+    box-shadow: 0px 6px var(--t2-equal-shadow);
+}
+
+.t3EqualButton:active {
+    box-shadow: 0px 6px var(--t3-equal-shadow);
 }
 
 .t1DeleteContainer .delKey {
@@ -203,21 +336,44 @@ main {
     font-size: 24px;
 }
 
-.t1RemoveButton {
-
+.removeButton {
     font-size: 32px;
-    background-color: var(--t1-remove-background);
-    color: var(--t1-output-color);
-
     text-transform: uppercase;
+    cursor: pointer;
+}
 
+.removeButton:active {
+    transform: translateY(4px);
+}
+
+.t1RemoveButton {
+    background-color: var(--t1-remove-background);
+    color: var(--t1-special-key-color);
     box-shadow: 0px 10px var(--t1-remove-shadow);
 }
 
-.t1RemoveButton:active {
+.t2RemoveButton {
+    background-color: var(--t2-remove-background);
+    color: var(--t2-special-key-color);
+    box-shadow: 0px 10px var(--t2-remove-shadow);
+}
 
-    transform: translateY(4px);
+.t3RemoveButton {
+    background-color: var(--t3-remove-background);
+    color: var(--t3-special-color);
+    box-shadow: 0px 10px var(--t3-remove-shadow);
+}
+
+.t1RemoveButton:active {
     box-shadow: 0px 6px var(--t1-remove-shadow);
+}
+
+.t2RemoveButton:active {
+    box-shadow: 0px 6px var(--t2-remove-shadow);
+}
+
+.t3RemoveButton:active {
+    box-shadow: 0px 6px var(--t3-remove-shadow);
 }
 
 
@@ -225,15 +381,25 @@ main {
     display: flex;
     gap: 10px;
 
-    align-items: center;
+    align-items: end;
 }
 
-.t1ThemeSelection {
-
+.themeSelectionBackground {
     width: 90px; 
     height: 30px;
     border-radius: 20px;
+}
+
+.t1ThemeSelectionBackground {
     background-color: var(--t1-keypad-background);
+}
+
+.t2ThemeSelectionBackground {
+    background-color: var(--t2-keypad-background);
+}
+
+.t3ThemeSelectionBackground {
+    background-color: var(--t3-keypad-background);
 }
 
 .outputContainer {
@@ -241,19 +407,40 @@ main {
     display: flex; 
     align-items: center;
     justify-content: end;
-    background-color: var(--t1-output-background);
     height: 60px;
-    width: 80%;
+    width: 90%;
     padding: 20px;
 
     border-radius: 15px;
 }
 
+.t1OutputContainer {
+    background-color: var(--t1-output-background);
+}
+
+.t2OutputContainer {
+    background-color: var(--t2-output-background);
+}
+
+.t3OutputContainer {
+    background-color: var(--t3-output-background);
+}
+
 .output {
     text-align: center;
-    color: var(--t1-output-color);
     font-size: 48px;
+}
 
+.t1Output {
+    color: var(--t1-output-color);
+}
+
+.t2Output {
+    color: var(--t2-output-color);
+}
+
+.t3Output {
+    color: var(--t3-output-color);
 }
 
 .themeOptionsContainer {
@@ -270,11 +457,22 @@ main {
     background-color: transparent;
     outline: none;
     border: none;
+
+    cursor: pointer;
+}
+
+.themeOptions {
+    font-size: 18px;
 }
 
 .t1ThemeOptions {
+    color: var(--t1-output-color);
+}
 
-    font-size: 18px;
+.t2ThemeOptions {
+    color: var(--t2-output-color);
+}
 
+.t3ThemeOptions {
     color: var(--t1-output-color);
 }
